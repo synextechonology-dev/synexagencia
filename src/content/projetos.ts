@@ -1,5 +1,6 @@
 // Portfólio. Para adicionar foto: coloque o arquivo em public/projetos/ (formato 4:3, .webp ou .jpg,
 // lado maior com 1600 px, abaixo de 300 KB) e preencha `foto: "/projetos/<arquivo>"`.
+// Para adicionar outro projeto, copie um bloco abaixo e troque os dados.
 // `pendente` mostra um aviso no modo revisão (?revisao=1). Apague a linha quando estiver resolvido.
 // `publicar: false` esconde o projeto do site sem precisar apagar.
 
@@ -11,8 +12,11 @@ export type Projeto = {
   cidade?: string;
   resumo: string;
   entrega: string[];
-  cor: string; // cor principal da marca do projeto, usada na capa provisória
+  cor: string; // cor principal da marca do projeto, aparece atrás da foto enquanto ela carrega
   foto?: string;
+  fotoAlt?: string; // descrição da foto para leitores de tela
+  // qual parte da foto fica visível quando ela é cortada em 4:3 (valor de object-position, ex.: "left center")
+  enquadramento?: string;
   link?: string;
   publicar?: boolean;
   pendente?: string;
@@ -20,78 +24,34 @@ export type Projeto = {
 
 export const projetos: Projeto[] = [
   {
-    slug: "espaco-cafe",
-    nome: "Espaço Café",
+    slug: "andris-burger",
+    nome: "Andri's Burger",
     tipo: "cliente",
-    nicho: "Cafeteria",
-    resumo: "Cardápio completo com comanda: o cliente monta o pedido no celular e envia pronto pelo WhatsApp.",
-    entrega: ["Cardápio digital", "Pedido pelo WhatsApp"],
-    cor: "#8C5A3C",
-    pendente: "Confirmar autorização, cidade, foto e link",
-  },
-  {
-    slug: "jotage-smash-burger",
-    nome: "Jotagê Smash Burger",
-    tipo: "cliente",
-    nicho: "Hamburgueria",
-    cidade: "Santa Cruz do Rio Pardo",
-    resumo: "Cardápio digital com a identidade da casa e pedido direto no WhatsApp.",
-    entrega: ["Cardápio digital", "Pedido pelo WhatsApp"],
-    cor: "#E4572E",
-    pendente: "Confirmar autorização, foto e link",
-  },
-  {
-    slug: "almanaque-gastrobar",
-    nome: "Almanaque Gastrobar",
-    tipo: "cliente",
-    nicho: "Gastrobar",
-    cidade: "Santa Cruz do Rio Pardo",
-    resumo: "Cardápio de bar e cozinha com pedido pelo WhatsApp.",
-    entrega: ["Cardápio digital", "Pedido pelo WhatsApp"],
-    cor: "#C9A227",
-    pendente: "Confirmar autorização, foto e link",
+    nicho: "Hamburgueria food truck",
+    cidade: "Camboriú, SC",
+    resumo:
+      "Cardápio digital para um food truck de hambúrguer, feito a partir da identidade da marca, com pedido para retirada ou entrega direto no WhatsApp.",
+    entrega: ["Identidade aplicada", "Cardápio digital", "Pedido pelo WhatsApp"],
+    cor: "#F6B90E",
+    foto: "/projetos/andris-burger.webp",
+    fotoAlt: "Tela do site do Andri's Burger",
+    link: "https://andris-burger.vercel.app/",
   },
   {
     slug: "barbearia-palazzo",
     nome: "Barbearia Palazzo",
     tipo: "cliente",
     nicho: "Barbearia",
-    cidade: "Santa Cruz do Rio Pardo",
-    resumo: "Site com serviços, fotos do espaço e agendamento pelo WhatsApp.",
-    entrega: ["Site", "Agendamento pelo WhatsApp"],
-    cor: "#A8865A",
-    pendente: "Confirmar autorização, foto e link",
-  },
-  {
-    slug: "dra-bruna-luiza",
-    nome: "Dra. Bruna Luiza",
-    tipo: "cliente",
-    nicho: "Odontologia",
-    cidade: "Santa Cruz do Rio Pardo",
-    resumo: "Site pessoal de dentista, com tratamentos explicados e contato pelo WhatsApp.",
-    entrega: ["Site", "Contato pelo WhatsApp"],
-    cor: "#5E9CA0",
-    pendente: "Confirmar autorização, foto e link",
-  },
-  {
-    slug: "us-dental",
-    nome: "US Dental",
-    tipo: "cliente",
-    nicho: "Clínica odontológica",
-    cidade: "Sorocaba",
-    resumo: "Site para clínica com duas unidades, cada uma com o próprio contato.",
-    entrega: ["Site", "Contato pelo WhatsApp"],
-    cor: "#2F6FB0",
-    pendente: "Confirmar autorização, foto e link",
-  },
-  {
-    slug: "lunatico",
-    nome: "Lunático",
-    tipo: "conceito",
-    nicho: "Hamburgueria noturna",
-    resumo: "Projeto conceito: uma hamburgueria que só abre à noite, da identidade visual ao cardápio.",
-    entrega: ["Identidade aplicada", "Cardápio digital"],
-    cor: "#7C6CF2",
-    pendente: "Adicionar foto e link",
+    cidade: "Santa Cruz do Rio Pardo, SP",
+    resumo: "Site com a identidade da barbearia, fotos do trabalho e do espaço, e agendamento direto pelo WhatsApp.",
+    entrega: ["Identidade aplicada", "Site", "Agendamento pelo WhatsApp"],
+    cor: "#5C0F1B",
+    foto: "/projetos/barbearia-palazzo.webp",
+    fotoAlt: "Tela do site da Barbearia Palazzo",
+    // o nome PALAZZO fica à esquerda do print; o corte centralizado cortaria a primeira letra
+    enquadramento: "left center",
+    link: "https://barbearia-palazzo.vercel.app/",
   },
 ];
+
+export const projetosPublicados = projetos.filter((p) => p.publicar !== false);

@@ -1117,30 +1117,10 @@ select {
 }
 
 /* ---------- projetos ---------- */
-.filtros {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-.filtro {
-  min-height: 40px;
-  padding: 0 16px;
-  border-radius: 999px;
-  border: 1px solid var(--linha);
-  background: transparent;
-  color: var(--texto-2);
-  font-size: 0.88rem;
-  font-weight: 500;
-  cursor: pointer;
-}
-.filtro--on {
-  border-color: var(--azul);
-  color: var(--texto);
-  background: color-mix(in srgb, var(--azul) 12%, transparent);
-}
+/* dois cards lado a lado, mesma largura e mesma altura (a grade estica os dois até o mais alto) */
 .projetos {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 22px;
 }
 .proj {
@@ -1151,14 +1131,9 @@ select {
   background: var(--cartao);
   border: 1px solid var(--linha);
 }
-.proj:first-child {
-  grid-column: span 2;
-}
-.proj:first-child .proj__capa {
-  aspect-ratio: 16 / 8.2;
-}
 .proj__capa {
   position: relative;
+  overflow: hidden;
   aspect-ratio: 4 / 3;
   background:
     radial-gradient(circle at 78% 22%, color-mix(in srgb, var(--proj-cor) 55%, transparent), transparent 55%),
@@ -1210,10 +1185,12 @@ select {
   color: rgba(17, 18, 20, 0.55);
 }
 .proj__corpo {
-  padding: 22px 22px 26px;
-  display: grid;
+  flex: 1;
+  padding: clamp(20px, 2.6vw, 28px);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   gap: 10px;
-  align-content: start;
 }
 .proj__meta {
   display: flex;
@@ -1247,7 +1224,7 @@ select {
 .proj__entrega {
   list-style: none;
   padding: 0;
-  margin: 4px 0 0;
+  margin: 4px 0 12px;
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
@@ -1260,23 +1237,13 @@ select {
   border: 1px solid var(--linha);
   color: var(--texto-2);
 }
-.vazio {
-  color: var(--texto-2);
+/* o botão fica sempre no pé do card, alinhado nos dois */
+.proj__link {
+  margin-top: auto;
 }
-@media (max-width: 980px) {
-  .projetos {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-@media (max-width: 640px) {
+@media (max-width: 760px) {
   .projetos {
     grid-template-columns: 1fr;
-  }
-  .proj:first-child {
-    grid-column: auto;
-  }
-  .proj:first-child .proj__capa {
-    aspect-ratio: 4 / 3;
   }
 }
 

@@ -19,19 +19,12 @@ Tudo que ainda está pendente aparece com borda rosa e uma etiqueta.
 
 Arquivo: `src/content/projetos.ts`. Fotos em `public/projetos/`, formato 4:3, `.webp` ou `.jpg`, lado maior com 1600 px, abaixo de 300 KB.
 
-Coloquei os projetos deste ano. **Antes de publicar, confirme com cada cliente se pode mostrar o nome e a tela.** Quem não autorizar: `publicar: false`.
+O portfólio tem só dois projetos, os dois com autorização por escrito dos donos:
 
-- Espaço Café (falta a cidade)
-- Jotagê Smash Burger
-- Almanaque Gastrobar
-- Barbearia Palazzo
-- Dra. Bruna Luiza
-- US Dental
-- Lunático (marcado como projeto conceito)
+- Andri's Burger (Camboriú, SC)
+- Barbearia Palazzo (Santa Cruz do Rio Pardo, SP)
 
-Projetos que fechou ou não: confira se todos são clientes de fato. Os que ainda são proposta não devem aparecer como "Cliente".
-
-O primeiro da lista aparece maior. Deixe nele o projeto mais bonito.
+Para adicionar outro projeto, basta copiar um bloco em `projetos.ts` e trocar os dados (nome, nicho, cidade, resumo, entregas, cor, foto e link). Se a lista ficar vazia, a seção Projetos e o link do menu somem sozinhos.
 
 ## 3. Automação
 

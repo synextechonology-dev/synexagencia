@@ -4,11 +4,13 @@ import { useEffect, useState } from "react";
 import { Marca } from "./Logo";
 import { Icone } from "./Icone";
 import { linkWhats } from "@/content/site";
+import { projetosPublicados } from "@/content/projetos";
 
 const links = [
   { href: "#formatos", rotulo: "Formatos" },
   { href: "#identidade", rotulo: "Identidade" },
-  { href: "#projetos", rotulo: "Projetos" },
+  // sem projeto publicado a seção não aparece, então o link também sai
+  ...(projetosPublicados.length > 0 ? [{ href: "#projetos", rotulo: "Projetos" }] : []),
   { href: "#automacao", rotulo: "Automação" },
   { href: "#processo", rotulo: "Processo" },
 ];
