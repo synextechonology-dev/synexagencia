@@ -27,11 +27,11 @@ Modo revisão: `http://localhost:3000/?revisao=1` mostra o que falta preencher (
 
 | Seção | Arquivo | Fundo |
 |---|---|---|
-| Abertura | `Abertura.tsx` | Grafite + grade de pontos |
+| Abertura | `Abertura.tsx` | Grafite |
 | Formatos | `Formatos.tsx` | Superfície |
 | Identidade + provador | `Provador.tsx` | Azul noturno |
 | Projetos | `Projetos.tsx` | Grafite |
-| Automação | `Automacao.tsx` | Superfície + grade de pontos |
+| Automação | `Automacao.tsx` | Superfície |
 | Processo | `Processo.tsx` | Azul noturno |
 | Dúvidas | `Duvidas.tsx` | Grafite |
 | Contato | `Contato.tsx` | Azul marinho (igual nos dois temas) |

@@ -24,7 +24,6 @@
   --texto-2: rgba(255, 255, 255, 0.7);
   --texto-3: rgba(255, 255, 255, 0.48);
   --linha: rgba(255, 255, 255, 0.11);
-  --ponto: rgba(255, 255, 255, 0.11);
   --destaque: #3b82f6;
   --destaque-forte: #93c5fd;
   --brilho: rgba(59, 130, 246, 0.12);
@@ -47,7 +46,6 @@
   --texto-2: rgba(17, 18, 20, 0.72);
   --texto-3: rgba(17, 18, 20, 0.52);
   --linha: rgba(17, 18, 20, 0.12);
-  --ponto: rgba(17, 18, 20, 0.1);
   --destaque: #1e3a8a;
   --destaque-forte: #1e3a8a;
   --brilho: rgba(59, 130, 246, 0.1);
@@ -155,16 +153,6 @@ select {
 }
 .sec--3 {
   background: var(--bg-3);
-}
-.pontos {
-  background-image: radial-gradient(var(--ponto) 1px, transparent 1.4px);
-  background-size: 24px 24px;
-}
-.sec--1.pontos {
-  background-color: var(--bg-1);
-}
-.sec--2.pontos {
-  background-color: var(--bg-2);
 }
 
 /* ---------- tipografia de seção ---------- */

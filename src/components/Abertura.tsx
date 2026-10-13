@@ -36,7 +36,7 @@ export function Abertura() {
   } as CSSProperties;
 
   return (
-    <section className="abertura sec sec--1 pontos" id="topo">
+    <section className="abertura sec sec--1" id="topo">
       <div className="abertura__brilho" aria-hidden="true" />
       <div className="wrap abertura__grade">
         <div className="abertura__texto">

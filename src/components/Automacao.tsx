@@ -46,7 +46,7 @@ const caminhos = {
 
 export function Automacao() {
   return (
-    <section className="sec sec--2 pontos" id="automacao">
+    <section className="sec sec--2" id="automacao">
       <div className="wrap">
         <div className="automacao__topo">
           <div className="cabeca">
