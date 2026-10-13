@@ -5,10 +5,10 @@ import { site } from "@/content/site";
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
-  title: "Synex | Sites e cardápios digitais sob medida",
+  title: "Synex | Desenvolvimento Web e Automação de Processos",
   description: site.descricao,
   openGraph: {
-    title: "Synex | Sites e cardápios digitais sob medida",
+    title: "Synex | Desenvolvimento Web e Automação de Processos",
     description: site.descricao,
     url: site.url,
     siteName: "Synex",
