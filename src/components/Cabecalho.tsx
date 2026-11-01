@@ -7,12 +7,12 @@ import { linkWhats } from "@/content/site";
 import { projetosPublicados } from "@/content/projetos";
 
 const links = [
-  { href: "#criamos", rotulo: "O que desenvolvemos" },
-  { href: "#identidade", rotulo: "Identidade" },
+  { href: "/#criamos", rotulo: "O que desenvolvemos" },
+  { href: "/#identidade", rotulo: "Identidade" },
   // sem projeto publicado a seção não aparece, então o link também sai
-  ...(projetosPublicados.length > 0 ? [{ href: "#projetos", rotulo: "Projetos" }] : []),
-  { href: "#automacao", rotulo: "Automação" },
-  { href: "#processo", rotulo: "Processo" },
+  ...(projetosPublicados.length > 0 ? [{ href: "/#projetos", rotulo: "Projetos" }] : []),
+  { href: "/#automacao", rotulo: "Automação" },
+  { href: "/#processo", rotulo: "Processo" },
 ];
 
 type Tema = "dark" | "light";

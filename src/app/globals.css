@@ -5,9 +5,9 @@
    ========================================================================== */
 
 :root {
-  --f-titulo: "Montserrat Alternates", "Montserrat", system-ui, sans-serif;
-  --f-texto: "Montserrat", system-ui, -apple-system, "Segoe UI", sans-serif;
-  --f-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --f-titulo: var(--font-montserrat-alternates), var(--font-montserrat), system-ui, sans-serif;
+  --f-texto: var(--font-montserrat), system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-mono: var(--font-jetbrains-mono), ui-monospace, "SFMono-Regular", Menlo, monospace;
 
   --azul: #3b82f6;
   --azul-claro: #93c5fd;
@@ -1893,6 +1893,15 @@ select {
   outline: 2px solid #93c5fd;
   outline-offset: 3px;
 }
+.briefing__nota {
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.72);
+}
+.briefing__nota a {
+  color: #fff;
+  text-underline-offset: 3px;
+}
 .briefing .btn {
   width: 100%;
   margin-top: 6px;
@@ -1959,6 +1968,13 @@ select {
   font-size: 0.76rem;
   color: var(--texto-3);
 }
+.rodape__fim a {
+  color: var(--texto-2);
+  text-underline-offset: 3px;
+}
+.rodape__fim a:hover {
+  color: var(--texto);
+}
 @media (max-width: 640px) {
   .rodape__grade {
     grid-template-columns: 1fr;
@@ -1966,6 +1982,93 @@ select {
   .rodape {
     padding-bottom: calc(96px + env(safe-area-inset-bottom));
   }
+}
+
+/* ---------- página de privacidade ---------- */
+.privacidade {
+  padding-top: calc(var(--cab-altura) + clamp(40px, 7vw, 88px));
+}
+.prosa {
+  max-width: 72ch;
+}
+.prosa h1 {
+  font-size: clamp(2rem, 4.4vw, 3rem);
+}
+.prosa h2 {
+  font-size: clamp(1.25rem, 2.2vw, 1.55rem);
+  margin-top: clamp(32px, 4vw, 44px);
+  margin-bottom: 12px;
+}
+.prosa p,
+.prosa .lista-losango {
+  color: var(--texto-2);
+}
+.prosa p + p,
+.prosa p + .lista-losango,
+.prosa .lista-losango + p {
+  margin-top: 14px;
+}
+.prosa .lista-losango {
+  margin-top: 12px;
+}
+.prosa .prosa__data {
+  margin: 14px 0 28px;
+  font-family: var(--f-mono);
+  font-size: 0.82rem;
+  color: var(--texto-3);
+}
+.prosa a {
+  color: var(--destaque-forte);
+  text-underline-offset: 3px;
+}
+
+/* ---------- aviso de privacidade ---------- */
+.aviso {
+  position: fixed;
+  z-index: 60;
+  left: 16px;
+  right: 16px;
+  bottom: calc(12px + env(safe-area-inset-bottom));
+  max-width: 880px;
+  margin-inline: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 24px;
+  padding: 14px 18px;
+  border-radius: var(--raio);
+  background: var(--cartao-2);
+  border: 1px solid var(--linha);
+  box-shadow: var(--sombra);
+}
+.aviso p {
+  font-size: 0.86rem;
+  line-height: 1.5;
+  color: var(--texto-2);
+}
+.aviso a {
+  color: var(--destaque-forte);
+  font-weight: 600;
+  text-underline-offset: 3px;
+  white-space: nowrap;
+}
+.aviso__ok {
+  flex-shrink: 0;
+  min-height: 40px;
+  padding-inline: 20px;
+}
+@media (max-width: 560px) {
+  .aviso {
+    flex-direction: column;
+    align-items: stretch;
+    text-align: left;
+  }
+}
+/* com o aviso na tela, o botão flutuante do WhatsApp sai de cima dele */
+[data-aviso="1"] .flutuante,
+[data-aviso="1"] .flutuante--on {
+  transform: translateY(160%);
+  visibility: hidden;
 }
 
 /* ---------- botão flutuante (só celular) ---------- */

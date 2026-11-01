@@ -20,10 +20,10 @@ const cores = [
 ];
 
 const fontes = [
-  { nome: "Clássica", familia: "Fraunces", css: "'Fraunces', serif" },
-  { nome: "Impacto", familia: "Bebas Neue", css: "'Bebas Neue', sans-serif" },
-  { nome: "Moderna", familia: "Space Grotesk", css: "'Space Grotesk', sans-serif" },
-  { nome: "Artesanal", familia: "Caveat", css: "'Caveat', cursive" },
+  { nome: "Clássica", familia: "Fraunces", css: "var(--font-fraunces)" },
+  { nome: "Impacto", familia: "Bebas Neue", css: "var(--font-bebas-neue)" },
+  { nome: "Moderna", familia: "Space Grotesk", css: "var(--font-space-grotesk)" },
+  { nome: "Artesanal", familia: "Caveat", css: "var(--font-caveat)" },
 ];
 
 const fundos = {

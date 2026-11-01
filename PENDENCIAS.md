@@ -37,6 +37,15 @@ Seis frentes: financeiro, estoque, pedidos, agenda, atendimento e relatórios. *
 
 Arquivo: `src/components/Duvidas.tsx`. Sem pendências: as respostas sobre identidade do zero e sobre domínio e hospedagem foram definidas. Vale só conferir se "Combinamos isso na proposta" (domínio e hospedagem) é a política que vocês querem manter.
 
+## 6. Privacidade e cookies (LGPD)
+
+- **Publicada** em `/privacidade` (`src/app/privacidade/page.tsx`), com a data de atualização no topo do arquivo (`atualizadoEm`). Entra no sitemap (`src/app/sitemap.ts`).
+- O aviso de privacidade (`src/components/AvisoPrivacidade.tsx`) é só informativo: o site não usa cookies de rastreamento. Guarda `synex-aviso-privacidade = 1` no navegador depois do "Entendi".
+- As fontes agora vêm do próprio site (`src/app/fontes.ts`, via `next/font`), sem requisição para o Google.
+- **Revisar a página e o aviso se a Synex passar a usar** Vercel Analytics, Meta Pixel, Google Analytics ou qualquer ferramenta de estatísticas ou anúncios. Pixel e Google Analytics exigem consentimento **antes** de carregar; nesse caso o aviso precisa virar um pedido de consentimento (aceitar e recusar) e o texto da seção "Cookies e armazenamento no navegador" muda.
+- Se preencher o CNPJ em `site.ts`, ele aparece sozinho na seção "Quem somos".
+- Confira com a contabilidade ou um advogado se os prazos de guarda (12 meses depois do último contato) e a resposta em até 15 dias são o que a Synex quer assumir.
+
 ## 5. Decisões que tomei (dá para mudar)
 
 - **Sem preço no site**, como você decidiu. A dúvida "Quanto custa?" explica que depende do escopo.

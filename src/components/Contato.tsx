@@ -171,6 +171,10 @@ export function Contato() {
           <button type="submit" className="btn btn--claro btn--grande">
             <Icone nome="whats" /> Enviar pelo WhatsApp
           </button>
+          <p className="briefing__nota">
+            Ao enviar, você abre uma conversa no nosso WhatsApp. Veja{" "}
+            <a href="/privacidade">como tratamos seus dados</a>.
+          </p>
         </form>
       </div>
     </section>

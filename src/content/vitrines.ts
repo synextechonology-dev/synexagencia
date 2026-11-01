@@ -26,7 +26,7 @@ export const vitrines: Record<FormatoId, Vitrine> = {
     apoio: "rgba(242,238,230,.58)",
     marca: "#C9A227",
     marcaTexto: "#14110A",
-    fonte: "'Space Grotesk', sans-serif",
+    fonte: "var(--font-space-grotesk)",
     abas: ["Serviços", "Equipe", "Local"],
     itens: [
       { nome: "Corte", detalhe: "Tesoura ou máquina, com lavagem", preco: "R$ 45" },
@@ -43,7 +43,7 @@ export const vitrines: Record<FormatoId, Vitrine> = {
     apoio: "rgba(43,32,36,.6)",
     marca: "#B4637A",
     marcaTexto: "#FFFFFF",
-    fonte: "'Fraunces', serif",
+    fonte: "var(--font-fraunces)",
     abas: ["Tratamentos", "Avaliação", "Local"],
     itens: [
       { nome: "Limpeza de pele profunda", detalhe: "Extração, máscara e hidratação", preco: "60 min" },
@@ -60,7 +60,7 @@ export const vitrines: Record<FormatoId, Vitrine> = {
     apoio: "rgba(31,42,28,.6)",
     marca: "#3F5B3A",
     marcaTexto: "#FFFFFF",
-    fonte: "'Fraunces', serif",
+    fonte: "var(--font-fraunces)",
     abas: ["Entradas", "Pratos", "Cafés"],
     itens: [
       { nome: "Bruschetta de tomate", detalhe: "Pão de fermentação natural", preco: "R$ 32" },
@@ -77,7 +77,7 @@ export const vitrines: Record<FormatoId, Vitrine> = {
     apoio: "rgba(242,244,247,.6)",
     marca: "#F59E0B",
     marcaTexto: "#111214",
-    fonte: "'Space Grotesk', sans-serif",
+    fonte: "var(--font-space-grotesk)",
     abas: ["Capinhas", "Carregadores", "Fones"],
     itens: [
       { nome: "Capinha antiimpacto", detalhe: "Bordas reforçadas, várias cores", preco: "R$ 49,90" },

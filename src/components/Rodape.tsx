@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Marca } from "./Logo";
 import { Icone } from "./Icone";
 import { linkWhats, site } from "@/content/site";
@@ -32,6 +33,7 @@ export function Rodape() {
           <span>{site.cidade}</span>
           {site.cnpj && <span>CNPJ {site.cnpj}</span>}
           <span>© {ano} Synex</span>
+          <Link href="/privacidade">Privacidade e cookies</Link>
         </p>
       </div>
     </footer>

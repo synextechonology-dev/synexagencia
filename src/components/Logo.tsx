@@ -44,7 +44,7 @@ export function Simbolo({ tamanho = 28, className, recorte = "var(--bg-1)", anim
   );
 }
 
-export function Marca({ href = "#topo", recorte }: { href?: string; recorte?: string }) {
+export function Marca({ href = "/#topo", recorte }: { href?: string; recorte?: string }) {
   return (
     <a className="marca" href={href} aria-label="Synex, voltar ao início">
       <Simbolo tamanho={30} recorte={recorte} />

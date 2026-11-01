@@ -2,6 +2,8 @@ import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
 import "./globals.css";
 import { site } from "@/content/site";
+import { classesDasFontes } from "./fontes";
+import { AvisoPrivacidade } from "@/components/AvisoPrivacidade";
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
@@ -47,23 +49,20 @@ const dadosEstruturados = {
   sameAs: [site.instagram],
 };
 
-const fontes =
-  "https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@500;600&family=Montserrat:wght@400;500;600&family=JetBrains+Mono:wght@400&family=Fraunces:opsz,wght@9..144,600&family=Bebas+Neue&family=Space+Grotesk:wght@500;600&family=Caveat:wght@700&display=swap";
-
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="pt-BR" data-theme="dark" suppressHydrationWarning>
+    <html lang="pt-BR" data-theme="dark" className={classesDasFontes} suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: temaInicial }} />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
-        <link rel="stylesheet" href={fontes} />
         <noscript>
           <style>{".fx-slide-l,.fx-slide-r{opacity:1;transform:none}"}</style>
         </noscript>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(dadosEstruturados) }} />
       </head>
-      <body>{children}</body>
+      <body>
+        {children}
+        <AvisoPrivacidade />
+      </body>
     </html>
   );
 }
