@@ -4,8 +4,8 @@ import { site } from "@/content/site";
 
 const etapas = [
   { titulo: "Conversa", texto: "Entendemos o negócio, o público e por onde o cliente chega até você hoje." },
-  { titulo: "Identidade", texto: "Reunimos logo, cores, fontes e fotos. Se faltar alguma peça, organizamos junto." },
-  { titulo: "Protótipo", texto: "Você vê a vitrine funcionando no seu celular antes da versão final." },
+  { titulo: "Identidade", texto: "Criamos a marca do zero ou organizamos a que você já tem: logo, cores, fontes e tom de voz." },
+  { titulo: "Protótipo", texto: "Você vê o projeto funcionando no seu celular antes da versão final." },
   { titulo: "Ajustes", texto: "Revisamos textos, fotos e detalhes com você até ficar com a cara da casa." },
   { titulo: "No ar", texto: "Publicamos, ligamos ao seu WhatsApp e entregamos tudo funcionando." },
 ];

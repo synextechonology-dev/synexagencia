@@ -18,7 +18,7 @@ const processos: { icone: NomeIcone; titulo: string; texto: string }[] = [
   {
     icone: "pedidos",
     titulo: "Pedidos",
-    texto: "Pedidos do site entram numa fila com status para a cozinha e aviso automático para o cliente.",
+    texto: "Pedidos do site entram numa fila com status para a sua equipe e aviso automático para o cliente.",
   },
   {
     icone: "agenda",
@@ -28,7 +28,7 @@ const processos: { icone: NomeIcone; titulo: string; texto: string }[] = [
   {
     icone: "atendimento",
     titulo: "Atendimento",
-    texto: "Respostas para as perguntas de sempre: horário, endereço, cardápio e formas de pagamento.",
+    texto: "Respostas para as perguntas de sempre: horário, endereço, preços e formas de pagamento.",
   },
   {
     icone: "relatorio",
@@ -111,8 +111,8 @@ export function Automacao() {
             <figcaption className="registro">
               <code>
                 <span>pedido #0142 recebido</span>
-                <span>estoque: pão brioche, menos 2</span>
-                <span>financeiro: R$ 82,00 lançado no caixa</span>
+                <span>estoque: carregador 20W, menos 1</span>
+                <span>financeiro: R$ 89,90 lançado no caixa</span>
                 <span>relatório do dia atualizado</span>
               </code>
             </figcaption>

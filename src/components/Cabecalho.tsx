@@ -7,7 +7,7 @@ import { linkWhats } from "@/content/site";
 import { projetosPublicados } from "@/content/projetos";
 
 const links = [
-  { href: "#formatos", rotulo: "Formatos" },
+  { href: "#criamos", rotulo: "O que criamos" },
   { href: "#identidade", rotulo: "Identidade" },
   // sem projeto publicado a seção não aparece, então o link também sai
   ...(projetosPublicados.length > 0 ? [{ href: "#projetos", rotulo: "Projetos" }] : []),
@@ -64,7 +64,7 @@ export function Cabecalho() {
             ))}
           </ul>
           <a className="btn btn--primario cab__nav-cta" href={linkWhats()} target="_blank" rel="noopener">
-            <Icone nome="whats" /> Quero minha vitrine
+            <Icone nome="whats" /> Começar meu projeto
           </a>
         </nav>
         <div className="cab__acoes">
@@ -78,7 +78,7 @@ export function Cabecalho() {
             <Icone nome={tema === "dark" ? "sol" : "lua"} />
           </button>
           <a className="btn btn--primario cab__cta" href={linkWhats()} target="_blank" rel="noopener">
-            Quero minha vitrine
+            Começar meu projeto
           </a>
           <button
             type="button"

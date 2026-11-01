@@ -52,6 +52,21 @@ export const projetos: Projeto[] = [
     enquadramento: "left center",
     link: "https://barbearia-palazzo.vercel.app/",
   },
+  {
+    // PENDENTE: falta public/projetos/lastro-contabilidade.webp. Quando o arquivo existir, apague a linha `publicar: false`.
+    slug: "lastro-contabilidade",
+    nome: "Lastro Contabilidade",
+    tipo: "conceito",
+    nicho: "Escritório de contabilidade",
+    resumo:
+      "Projeto conceito: identidade e site para um escritório de contabilidade, com os serviços explicados em linguagem simples e contato por serviço no WhatsApp.",
+    entrega: ["Identidade visual", "Site institucional"],
+    cor: "#0B1220",
+    foto: "/projetos/lastro-contabilidade.webp",
+    fotoAlt: "Tela do site do Lastro Contabilidade",
+    link: "https://lastrocontabilidade.vercel.app/",
+    publicar: false,
+  },
 ];
 
 export const projetosPublicados = projetos.filter((p) => p.publicar !== false);
