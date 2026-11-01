@@ -58,6 +58,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
         <link rel="stylesheet" href={fontes} />
+        <noscript>
+          <style>{".fx-slide-l,.fx-slide-r{opacity:1;transform:none}"}</style>
+        </noscript>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(dadosEstruturados) }} />
       </head>
       <body>{children}</body>

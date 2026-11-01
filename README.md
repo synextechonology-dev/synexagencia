@@ -18,7 +18,7 @@ Modo revisão: `http://localhost:3000/?revisao=1` mostra o que falta preencher (
 |---|---|
 | WhatsApp, Instagram, domínio, e-mail, agenda, prazo | `src/content/site.ts` |
 | Projetos do portfólio | `src/content/projetos.ts` (fotos em `public/projetos/`) |
-| Marcas de exemplo no celular da seção "O que criamos" | `src/content/vitrines.ts` |
+| Marcas de exemplo no celular da seção "O que desenvolvemos" | `src/content/vitrines.ts` |
 | Textos de cada seção | `src/components/<Seção>.tsx` |
 | Cores, fontes, espaçamentos, tema claro | `src/app/globals.css` (topo do arquivo) |
 | Ícone da aba | `src/app/icon.svg` |
@@ -28,7 +28,7 @@ Modo revisão: `http://localhost:3000/?revisao=1` mostra o que falta preencher (
 | Seção | Arquivo | Fundo |
 |---|---|---|
 | Abertura | `Abertura.tsx` | Grafite |
-| O que criamos | `Criamos.tsx` | Superfície |
+| O que desenvolvemos | `Criamos.tsx` | Superfície |
 | Identidade + provador | `Provador.tsx` | Azul noturno |
 | Projetos | `Projetos.tsx` | Grafite |
 | Automação | `Automacao.tsx` | Superfície |

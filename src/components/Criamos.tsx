@@ -8,7 +8,8 @@ import { linkWhats, mensagens } from "@/content/site";
 
 // Os quatro formatos como botões selecionáveis; o celular ao lado mostra uma marca fictícia para cada um.
 // A troca automática roda enquanto ninguém interage: pausa com mouse ou foco, para de vez no primeiro clique
-// e não roda com prefers-reduced-motion.
+// e não roda com prefers-reduced-motion. A lista entra deslizando da esquerda e o celular da direita,
+// uma vez só, quando a seção aparece na tela.
 
 const formatos: { id: FormatoId; icone: NomeIcone; titulo: string; texto: string }[] = [
   {
@@ -41,10 +42,27 @@ export function Criamos() {
   const [ativa, setAtiva] = useState(0);
   const [pausado, setPausado] = useState(false);
   const [escolheu, setEscolheu] = useState(false);
+  const [visivel, setVisivel] = useState(false);
   const semMovimento = useRef(false);
+  const bloco = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     semMovimento.current = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  }, []);
+
+  useEffect(() => {
+    const el = bloco.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      ([it]) => {
+        if (!it.isIntersecting) return;
+        setVisivel(true);
+        obs.disconnect();
+      },
+      { threshold: 0.2 },
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
   }, []);
 
   useEffect(() => {
@@ -71,13 +89,14 @@ export function Criamos() {
     <section className="sec sec--2" id="criamos">
       <div className="wrap">
         <div className="cabeca">
-          <p className="rotulo">O que criamos</p>
+          <p className="rotulo">O que desenvolvemos</p>
           <h2 className="titulo">Um formato para cada jeito de vender.</h2>
           <p className="lead">Todos partem da sua marca e levam o cliente direto para o seu WhatsApp.</p>
         </div>
 
         <div
-          className="criamos"
+          ref={bloco}
+          className={visivel ? "criamos criamos--run" : "criamos"}
           onMouseEnter={() => setPausado(true)}
           onMouseLeave={() => setPausado(false)}
           onFocus={() => setPausado(true)}
@@ -89,7 +108,8 @@ export function Criamos() {
                 key={f.id}
                 type="button"
                 aria-pressed={i === ativa}
-                className={i === ativa ? "criamos__op criamos__op--on" : "criamos__op"}
+                className={i === ativa ? "criamos__op criamos__op--on fx-slide-l" : "criamos__op fx-slide-l"}
+                style={{ "--i": i } as CSSProperties}
                 onClick={() => {
                   setAtiva(i);
                   setEscolheu(true);
@@ -106,7 +126,7 @@ export function Criamos() {
             ))}
           </div>
 
-          <div className="criamos__palco">
+          <div className="criamos__palco fx-slide-r" style={{ "--i": 2 } as CSSProperties}>
             <div className="fone" style={estilo} aria-label={`Exemplo de ${v.nicho}: ${v.nome}`} role="img">
               <div className="fone__tela" key={v.nome}>
                 <div className="fone__topo">

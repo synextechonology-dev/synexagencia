@@ -1,4 +1,9 @@
-// Perguntas frequentes. `pendente` aparece no modo revisão (?revisao=1).
+"use client";
+
+import { useState } from "react";
+
+// Perguntas frequentes. A resposta desliza para baixo ao clicar na pergunta (a altura é resolvida pelo CSS).
+// `pendente` aparece no modo revisão (?revisao=1).
 
 const duvidas: { p: string; r: string; pendente?: string }[] = [
   {
@@ -36,6 +41,17 @@ const duvidas: { p: string; r: string; pendente?: string }[] = [
 ];
 
 export function Duvidas() {
+  const [abertas, setAbertas] = useState<Set<number>>(new Set());
+
+  function alternar(i: number) {
+    setAbertas((atual) => {
+      const novo = new Set(atual);
+      if (novo.has(i)) novo.delete(i);
+      else novo.add(i);
+      return novo;
+    });
+  }
+
   return (
     <section className="sec sec--1" id="duvidas">
       <div className="wrap duvidas__grade">
@@ -44,15 +60,24 @@ export function Duvidas() {
           <h2 className="titulo">Perguntas que sempre aparecem.</h2>
         </div>
         <div className="duvidas">
-          {duvidas.map((d) => (
-            <details key={d.p} className="duvida" data-pendente={d.pendente}>
-              <summary>
-                <span>{d.p}</span>
-                <i aria-hidden="true" />
-              </summary>
-              <p>{d.r}</p>
-            </details>
-          ))}
+          {duvidas.map((d, i) => {
+            const aberta = abertas.has(i);
+            return (
+              <div key={d.p} className={aberta ? "duvida duvida--aberta" : "duvida"} data-pendente={d.pendente}>
+                <h3>
+                  <button type="button" aria-expanded={aberta} aria-controls={`resposta-${i}`} onClick={() => alternar(i)}>
+                    <span>{d.p}</span>
+                    <i aria-hidden="true" />
+                  </button>
+                </h3>
+                <div className="duvida__resposta" id={`resposta-${i}`} role="region" aria-hidden={!aberta} inert={!aberta}>
+                  <div>
+                    <p>{d.r}</p>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>

@@ -1,11 +1,22 @@
+"use client";
+
 import Image from "next/image";
-import type { CSSProperties } from "react";
+import { useState, type CSSProperties } from "react";
 import { projetosPublicados } from "@/content/projetos";
 
+// Painéis que expandem: o projeto aberto ocupa a maior parte do espaço e os outros cedem lugar.
+// O JavaScript só troca qual painel está aberto; a divisão do espaço é resolvida pelo CSS.
 // Sem projeto publicado, a seção some (e o link "Projetos" do menu some junto, ver Cabecalho.tsx).
 
 export function Projetos() {
+  const [aberto, setAberto] = useState(0);
+
   if (projetosPublicados.length === 0) return null;
+
+  // No computador o painel abre ao passar o mouse. No celular só abre ao tocar, para a página não pular.
+  function aoPassarMouse(i: number) {
+    if (window.matchMedia("(min-width: 900px) and (hover: hover)").matches) setAberto(i);
+  }
 
   return (
     <section className="sec sec--1" id="projetos">
@@ -20,53 +31,72 @@ export function Projetos() {
         </div>
 
         <div className="projetos">
-          {projetosPublicados.map((p) => (
-            <article className="proj" key={p.slug} data-pendente={p.pendente}>
-              <div className="proj__capa" style={{ "--proj-cor": p.cor } as CSSProperties}>
-                {p.foto ? (
-                  <Image
-                    src={p.foto}
-                    alt={p.fotoAlt ?? `Tela do projeto ${p.nome}`}
-                    fill
-                    sizes="(max-width: 760px) calc(100vw - 32px), (max-width: 1080px) 580px, 390px"
-                    style={{ objectPosition: p.enquadramento }}
-                  />
-                ) : (
-                  <div className="proj__vazio" aria-hidden="true">
-                    <span className="proj__fone">
-                      <i />
-                      <i />
-                      <i />
+          {projetosPublicados.map((p, i) => {
+            const ativo = i === aberto;
+            return (
+              <article
+                className={ativo ? "proj proj--aberto" : "proj"}
+                key={p.slug}
+                data-pendente={p.pendente}
+                onMouseEnter={() => aoPassarMouse(i)}
+              >
+                <button
+                  type="button"
+                  className="proj__capa"
+                  style={{ "--proj-cor": p.cor } as CSSProperties}
+                  aria-expanded={ativo}
+                  aria-controls={`proj-${p.slug}`}
+                  aria-label={`Ver o projeto ${p.nome}`}
+                  onClick={() => setAberto(i)}
+                >
+                  {p.foto ? (
+                    <Image
+                      src={p.foto}
+                      alt={p.fotoAlt ?? `Tela do projeto ${p.nome}`}
+                      fill
+                      sizes="(max-width: 899px) calc(100vw - 32px), 900px"
+                      style={{ objectPosition: p.enquadramento }}
+                    />
+                  ) : (
+                    <span className="proj__vazio" aria-hidden="true">
+                      <span className="proj__fone">
+                        <i />
+                        <i />
+                        <i />
+                      </span>
+                      <span className="proj__aviso">Imagem do projeto</span>
                     </span>
-                    <span className="proj__aviso">Imagem do projeto</span>
-                  </div>
-                )}
-              </div>
-              <div className="proj__corpo">
-                <p className="proj__meta">
+                  )}
+                </button>
+
+                <div className="proj__corpo" id={`proj-${p.slug}`}>
                   <span className={`etiqueta etiqueta--${p.tipo}`}>
                     {p.tipo === "cliente" ? "Cliente" : "Projeto conceito"}
                   </span>
-                  <span>
-                    {p.nicho}
-                    {p.cidade ? `, ${p.cidade}` : ""}
-                  </span>
-                </p>
-                <h3>{p.nome}</h3>
-                <p>{p.resumo}</p>
-                <ul className="proj__entrega">
-                  {p.entrega.map((e) => (
-                    <li key={e}>{e}</li>
-                  ))}
-                </ul>
-                {p.link && (
-                  <a className="btn btn--contorno proj__link" href={p.link} target="_blank" rel="noopener">
-                    Ver o site no ar
-                  </a>
-                )}
-              </div>
-            </article>
-          ))}
+                  <h3>{p.nome}</h3>
+                  <div className="proj__mais" inert={!ativo}>
+                    <div>
+                      <p className="proj__nicho">
+                        {p.nicho}
+                        {p.cidade ? `, ${p.cidade}` : ""}
+                      </p>
+                      <p>{p.resumo}</p>
+                      <ul className="proj__entrega">
+                        {p.entrega.map((e) => (
+                          <li key={e}>{e}</li>
+                        ))}
+                      </ul>
+                      {p.link && (
+                        <a className="btn btn--contorno proj__link" href={p.link} target="_blank" rel="noopener">
+                          Ver o site no ar
+                        </a>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              </article>
+            );
+          })}
         </div>
       </div>
     </section>

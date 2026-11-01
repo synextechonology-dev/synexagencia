@@ -27,6 +27,8 @@
   --destaque: #3b82f6;
   --destaque-forte: #93c5fd;
   --brilho: rgba(59, 130, 246, 0.12);
+  --hero-1: #0f1626; /* fundo da abertura em movimento: só tons do grafite com um toque do marinho */
+  --hero-2: #16233b;
   --sombra: 0 30px 60px -30px rgba(0, 0, 0, 0.7);
 
   --raio-p: 10px;
@@ -49,6 +51,8 @@
   --destaque: #1e3a8a;
   --destaque-forte: #1e3a8a;
   --brilho: rgba(59, 130, 246, 0.1);
+  --hero-1: #eef4ff;
+  --hero-2: #dce8fd;
   --sombra: 0 30px 60px -34px rgba(30, 58, 138, 0.35);
   color-scheme: light;
 }
@@ -371,6 +375,27 @@ select {
 .cab__nav ul a:hover {
   color: var(--texto);
 }
+@media (min-width: 941px) {
+  .cab__nav ul a {
+    position: relative;
+  }
+  .cab__nav ul a::after {
+    content: "";
+    position: absolute;
+    left: 12px;
+    right: 12px;
+    bottom: 3px;
+    height: 2px;
+    border-radius: 2px;
+    background: var(--azul);
+    transform: scaleX(0);
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .cab__nav ul a:hover::after,
+  .cab__nav ul a:focus-visible::after {
+    transform: scaleX(1);
+  }
+}
 .cab__nav-cta {
   display: none !important;
 }
@@ -430,7 +455,21 @@ select {
 }
 
 /* ---------- abertura ---------- */
+@keyframes grad-mov {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
 .abertura {
+  background: linear-gradient(120deg, var(--bg-1), var(--hero-1), var(--hero-2), var(--hero-1), var(--bg-1));
+  background-size: 300% 300%;
+  animation: grad-mov 9s ease infinite;
   padding-top: calc(var(--cab-altura) + clamp(40px, 7vw, 96px));
   padding-bottom: clamp(72px, 9vw, 120px);
   min-height: min(100svh, 980px);
@@ -738,7 +777,27 @@ select {
   }
 }
 
-/* ---------- o que criamos ---------- */
+/* ---------- o que desenvolvemos ---------- */
+/* entra uma vez só, quando a seção aparece na tela (a classe criamos--run vem do IntersectionObserver) */
+.fx-slide-l {
+  opacity: 0;
+  transform: translateX(-40px);
+}
+.fx-slide-r {
+  opacity: 0;
+  transform: translateX(40px);
+}
+.criamos--run .fx-slide-l,
+.criamos--run .fx-slide-r {
+  animation: slidein 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: calc(var(--i, 0) * 120ms);
+}
+@keyframes slidein {
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
 .criamos {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 0.8fr);
@@ -1170,35 +1229,16 @@ select {
   }
 }
 
-/* ---------- projetos ---------- */
-/* 3 colunas no computador; 2 colunas até 1080 px, com o terceiro card ocupando a linha inteira; 1 coluna no celular.
-   Com só dois projetos publicados, ficam dois cards lado a lado. */
+/* ---------- projetos: painéis que expandem ---------- */
+/* Celular e tablet: os projetos ficam empilhados e o aberto mostra a imagem maior e o texto.
+   Computador (900 px ou mais): painéis lado a lado, o aberto ocupa a maior parte do espaço. */
 .projetos {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 22px;
-}
-@media (min-width: 1081px) {
-  .projetos:has(.proj:nth-child(3)) {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-}
-@media (min-width: 761px) and (max-width: 1080px) {
-  .proj:nth-child(3):last-child {
-    grid-column: 1 / -1;
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-  .proj:nth-child(3):last-child .proj__capa {
-    height: 100%;
-    aspect-ratio: auto;
-    border-bottom: 0;
-    border-right: 1px solid var(--linha);
-  }
-}
-.proj {
   display: flex;
   flex-direction: column;
+  gap: 12px;
+}
+.proj {
+  position: relative;
   border-radius: var(--raio-g);
   overflow: hidden;
   background: var(--cartao);
@@ -1206,12 +1246,23 @@ select {
 }
 .proj__capa {
   position: relative;
+  display: block;
+  width: 100%;
+  height: 150px;
+  padding: 0;
+  border: 0;
   overflow: hidden;
-  aspect-ratio: 4 / 3;
+  cursor: pointer;
   background:
     radial-gradient(circle at 78% 22%, color-mix(in srgb, var(--proj-cor) 55%, transparent), transparent 55%),
     linear-gradient(160deg, color-mix(in srgb, var(--proj-cor) 22%, var(--bg-2)), var(--bg-2));
-  border-bottom: 1px solid var(--linha);
+  transition: height 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.proj--aberto .proj__capa {
+  height: min(66vw, 420px);
+}
+.proj__capa:focus-visible {
+  outline-offset: -4px;
 }
 .proj__capa img {
   width: 100%;
@@ -1258,20 +1309,11 @@ select {
   color: rgba(17, 18, 20, 0.55);
 }
 .proj__corpo {
-  flex: 1;
-  padding: clamp(20px, 2.6vw, 28px);
+  padding: 18px 20px 20px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 10px;
-}
-.proj__meta {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 8px 12px;
-  font-size: 0.8rem;
-  color: var(--texto-3);
+  gap: 8px;
 }
 .etiqueta {
   font-size: 0.72rem;
@@ -1290,14 +1332,40 @@ select {
 .proj h3 {
   font-size: 1.35rem;
 }
-.proj__corpo > p:not(.proj__meta) {
+/* o texto e o botão deslizam para dentro quando o painel abre */
+.proj__mais {
+  align-self: stretch;
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  transition:
+    grid-template-rows 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 0.4s ease;
+}
+.proj--aberto .proj__mais {
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+.proj__mais > div {
+  min-height: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+.proj__nicho {
+  font-size: 0.8rem;
+  color: var(--texto-3);
+}
+.proj__mais p:not(.proj__nicho) {
   color: var(--texto-2);
   font-size: 0.95rem;
 }
 .proj__entrega {
   list-style: none;
   padding: 0;
-  margin: 4px 0 12px;
+  margin: 4px 0 6px;
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
@@ -1310,13 +1378,66 @@ select {
   border: 1px solid var(--linha);
   color: var(--texto-2);
 }
-/* o botão fica sempre no pé do card, alinhado nos dois */
-.proj__link {
-  margin-top: auto;
-}
-@media (max-width: 760px) {
+
+@media (min-width: 900px) {
   .projetos {
-    grid-template-columns: 1fr;
+    flex-direction: row;
+    height: clamp(540px, 52vw, 660px);
+  }
+  .proj {
+    flex: 1 1 0;
+    min-width: 0;
+    transition: flex 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .proj--aberto {
+    flex: 3.2 1 0;
+  }
+  .proj__capa,
+  .proj--aberto .proj__capa {
+    position: absolute;
+    inset: 0;
+    height: 100%;
+  }
+  /* o texto fica sobre a imagem, com uma sombra escura neutra por baixo para dar leitura nos dois temas */
+  .proj__corpo {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 96px clamp(16px, 2vw, 28px) clamp(18px, 2vw, 26px);
+    background: linear-gradient(to top, rgba(8, 9, 11, 0.96) 0, rgba(8, 9, 11, 0.92) 72%, rgba(8, 9, 11, 0));
+    color: #fff;
+    pointer-events: none;
+  }
+  .proj__mais a {
+    pointer-events: auto;
+  }
+  .proj__corpo .etiqueta--cliente {
+    background: rgba(147, 197, 253, 0.2);
+    color: #bfdbfe;
+  }
+  .proj__corpo .etiqueta--conceito {
+    border-color: rgba(255, 255, 255, 0.5);
+    color: rgba(255, 255, 255, 0.85);
+  }
+  .proj__nicho {
+    color: rgba(255, 255, 255, 0.7);
+  }
+  .proj__mais p:not(.proj__nicho) {
+    color: rgba(255, 255, 255, 0.86);
+    max-width: 56ch;
+  }
+  .proj__entrega li {
+    border-color: rgba(255, 255, 255, 0.25);
+    color: rgba(255, 255, 255, 0.85);
+  }
+  .proj__link {
+    color: #fff;
+    border-color: rgba(255, 255, 255, 0.45);
+  }
+  .proj__link:hover {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: #fff;
   }
 }
 
@@ -1564,28 +1685,34 @@ select {
 .duvida {
   border-bottom: 1px solid var(--linha);
 }
-.duvida summary {
-  list-style: none;
+.duvida h3 {
+  font-family: inherit;
+  font-size: inherit;
+  letter-spacing: 0;
+  line-height: inherit;
+}
+.duvida button {
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 20px;
   padding: 22px 0;
+  background: none;
+  border: 0;
+  text-align: left;
   cursor: pointer;
   font-weight: 600;
   font-size: 1.04rem;
 }
-.duvida summary::-webkit-details-marker {
-  display: none;
-}
-.duvida summary i {
+.duvida button i {
   position: relative;
   flex-shrink: 0;
   width: 14px;
   height: 14px;
 }
-.duvida summary i::before,
-.duvida summary i::after {
+.duvida button i::before,
+.duvida button i::after {
   content: "";
   position: absolute;
   left: 0;
@@ -1596,16 +1723,38 @@ select {
   background: var(--destaque-forte);
   transition: transform 0.25s ease;
 }
-.duvida summary i::after {
+.duvida button i::after {
   transform: rotate(90deg);
 }
-.duvida[open] summary i::after {
+.duvida--aberta button i::after {
   transform: rotate(0deg);
+}
+/* a altura da resposta é resolvida pelo CSS: a linha da grade vai de 0 a 1 fração */
+.duvida__resposta {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.duvida--aberta .duvida__resposta {
+  grid-template-rows: 1fr;
+}
+.duvida__resposta > div {
+  min-height: 0;
+  overflow: hidden;
 }
 .duvida p {
   color: var(--texto-2);
   padding: 0 40px 24px 0;
   max-width: 64ch;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition:
+    opacity 0.35s ease,
+    transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.duvida--aberta .duvida__resposta p {
+  opacity: 1;
+  transform: none;
 }
 @media (max-width: 860px) {
   .duvidas__grade {

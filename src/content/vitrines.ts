@@ -1,4 +1,4 @@
-// As quatro marcas fictícias que aparecem no celular da seção "O que criamos".
+// As quatro marcas fictícias que aparecem no celular da seção "O que desenvolvemos".
 // Cada uma ilustra um formato (institucional, landing page, cardápio, loja) com uma identidade própria.
 
 export type Vitrine = {
