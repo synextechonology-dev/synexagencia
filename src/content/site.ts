@@ -6,7 +6,7 @@ export const site = {
   // PENDENTE: domínio definitivo (usado no SEO e no compartilhamento)
   url: "https://synex.com.br",
   descricao:
-    "Sites e cardápios digitais feitos a partir da identidade da sua marca, com pedido e agendamento direto no WhatsApp.",
+    "Identidade visual, sites, landing pages, cardápios digitais e lojas virtuais com a cara da sua marca. Agência em Santa Cruz do Rio Pardo, SP.",
 
   whatsapp: "5514998425937",
   whatsappExibicao: "(14) 99842-5937",
@@ -25,9 +25,12 @@ export const site = {
 };
 
 export const mensagens = {
-  geral: "Oi! Vim pelo site da Synex e quero conversar sobre a minha vitrine digital.",
-  cardapio: "Oi! Vim pelo site da Synex e quero um cardápio digital para o meu negócio.",
-  site: "Oi! Vim pelo site da Synex e quero um site para o meu negócio.",
+  geral: "Oi! Vim pelo site da Synex e quero conversar sobre um projeto para o meu negócio.",
+  identidade: "Oi! Vim pelo site da Synex e quero criar a identidade visual do meu negócio.",
+  institucional: "Oi! Vim pelo site da Synex e quero um site institucional.",
+  landing: "Oi! Vim pelo site da Synex e quero uma landing page.",
+  cardapio: "Oi! Vim pelo site da Synex e quero um cardápio digital.",
+  loja: "Oi! Vim pelo site da Synex e quero uma loja virtual.",
   automacao: "Oi! Vim pelo site da Synex e quero automatizar um processo do meu negócio.",
   agenda: "Oi! Vim pelo site da Synex e quero marcar um horário para conversar. Quais horários vocês têm disponíveis?",
 };

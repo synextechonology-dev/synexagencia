@@ -22,7 +22,7 @@ export function BotaoFlutuante() {
       aria-hidden={!visivel}
       tabIndex={visivel ? 0 : -1}
     >
-      <Icone nome="whats" /> Quero minha vitrine
+      <Icone nome="whats" /> Começar meu projeto
     </a>
   );
 }

@@ -9,7 +9,7 @@ export function Rodape() {
       <div className="wrap rodape__grade">
         <div>
           <Marca recorte="var(--bg-2)" />
-          <p className="rodape__frase">Sites e cardápios digitais feitos a partir da identidade de cada marca.</p>
+          <p className="rodape__frase">Marcas, sites e lojas virtuais criados do zero para cada negócio.</p>
         </div>
         <ul className="rodape__links">
           <li>

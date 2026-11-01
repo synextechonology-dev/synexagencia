@@ -19,7 +19,12 @@ export type NomeIcone =
   | "agenda"
   | "relatorio"
   | "venda"
-  | "mais";
+  | "mais"
+  | "lupa"
+  | "chave"
+  | "selo"
+  | "landing"
+  | "loja";
 
 const desenhos: Record<NomeIcone, ReactNode> = {
   whats: (
@@ -91,6 +96,38 @@ const desenhos: Record<NomeIcone, ReactNode> = {
     </>
   ),
   mais: <path d="M12 5v14M5 12h14" />,
+  lupa: (
+    <>
+      <circle cx="11" cy="11" r="6.5" />
+      <path d="M16 16l4.5 4.5" />
+    </>
+  ),
+  chave: (
+    <>
+      <circle cx="8" cy="15.5" r="4" />
+      <path d="M11 12.5L19.5 4M15.5 8l2.5 2.5" />
+    </>
+  ),
+  selo: (
+    <>
+      <rect x="6.2" y="6.2" width="11.6" height="11.6" rx="2" />
+      <rect x="6.2" y="6.2" width="11.6" height="11.6" rx="2" transform="rotate(45 12 12)" />
+      <path d="M9.4 12.2l1.9 1.9 3.4-3.6" />
+    </>
+  ),
+  landing: (
+    <>
+      <rect x="5" y="3.5" width="14" height="17" rx="2" />
+      <path d="M8.5 8h7M8.5 11.5h4" />
+      <rect x="8.5" y="15" width="7" height="2.5" rx="1.25" />
+    </>
+  ),
+  loja: (
+    <>
+      <path d="M5 8h14l-1 12H6z" />
+      <path d="M9 8V6.5a3 3 0 0 1 6 0V8" />
+    </>
+  ),
 };
 
 export function Icone({ nome, tamanho = 20 }: { nome: NomeIcone; tamanho?: number }) {

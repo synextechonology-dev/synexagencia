@@ -1,6 +1,6 @@
 import { Cabecalho } from "@/components/Cabecalho";
 import { Abertura } from "@/components/Abertura";
-import { Formatos } from "@/components/Formatos";
+import { Criamos } from "@/components/Criamos";
 import { Provador } from "@/components/Provador";
 import { Projetos } from "@/components/Projetos";
 import { Automacao } from "@/components/Automacao";
@@ -11,7 +11,7 @@ import { Rodape } from "@/components/Rodape";
 import { BotaoFlutuante, ModoRevisao } from "@/components/Extras";
 
 // Ordem das seções e cor de fundo de cada uma:
-// abertura (grafite) > formatos (superfície) > identidade (azul noturno) > projetos (grafite)
+// abertura (grafite) > o que criamos (superfície) > identidade (azul noturno) > projetos (grafite)
 // > automação (superfície) > processo (azul noturno) > dúvidas (grafite) > contato (marinho) > rodapé (superfície)
 
 export default function Pagina() {
@@ -23,7 +23,7 @@ export default function Pagina() {
       <Cabecalho />
       <main id="conteudo">
         <Abertura />
-        <Formatos />
+        <Criamos />
         <Provador />
         <Projetos />
         <Automacao />

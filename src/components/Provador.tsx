@@ -6,12 +6,12 @@ import { Simbolo } from "./Logo";
 import { linkWhats } from "@/content/site";
 
 // Provador de identidade: o visitante digita o nome do negócio, escolhe cor, fonte,
-// fundo e formato, e vê uma vitrine mudar na hora. Ao lado, os "tokens" da marca
+// fundo, e vê um site mudar na hora. Ao lado, os "tokens" da marca
 // aparecem como um desenvolvedor os escreveria. No fim, as escolhas vão prontas
 // para o WhatsApp da Synex.
 
 const cores = [
-  { nome: "Brasa", hex: "#E4572E" },
+  { nome: "Terracota", hex: "#E4572E" },
   { nome: "Mostarda", hex: "#E9A23B" },
   { nome: "Oliva", hex: "#5B7A3A" },
   { nome: "Vinho", hex: "#8E2C48" },
@@ -31,7 +31,6 @@ const fundos = {
   claro: { nome: "Claro", fundo: "#FAF7F2", texto: "#1B1B1F", apoio: "rgba(27,27,31,.6)", linha: "rgba(27,27,31,.12)" },
 };
 
-type Formato = "cardapio" | "site";
 type Fundo = keyof typeof fundos;
 
 function luminancia(hex: string) {
@@ -52,7 +51,6 @@ export function Provador() {
   const [cor, setCor] = useState(cores[0].hex);
   const [fonte, setFonte] = useState(fontes[0]);
   const [fundo, setFundo] = useState<Fundo>("escuro");
-  const [formato, setFormato] = useState<Formato>("cardapio");
 
   const nomeExibido = nome.trim() || "Seu negócio";
   const f = fundos[fundo];
@@ -68,9 +66,8 @@ export function Provador() {
   } as CSSProperties;
 
   const mensagem = [
-    "Oi! Testei o provador no site da Synex e quero conversar sobre a minha vitrine.",
+    "Oi! Testei o provador no site da Synex e quero criar a minha marca.",
     `Negócio: ${nome.trim() || "(não informado)"}`,
-    `Formato: ${formato === "cardapio" ? "cardápio digital" : "site"}`,
     `Cor: ${cor.toUpperCase()}`,
     `Fonte: ${fonte.familia}`,
     `Fundo: ${f.nome.toLowerCase()}`,
@@ -81,19 +78,18 @@ export function Provador() {
       <div className="identidade__brilho" aria-hidden="true" />
       <div className="wrap identidade__grade">
         <div className="identidade__texto">
-          <p className="rotulo">Identidade em primeiro lugar</p>
-          <h2 className="titulo">Cada projeto começa pela sua marca.</h2>
+          <p className="rotulo">Identidade visual</p>
+          <h2 className="titulo">Antes do site, vem a marca.</h2>
           <p className="lead">
-            Antes da primeira linha de código, reunimos o que faz o seu negócio ser reconhecido: logotipo, cores,
-            fontes, fotos e o jeito como você fala com o cliente. A vitrine nasce dessas peças. Por isso nenhuma
-            fica parecida com a outra.
+            Se o seu negócio ainda não tem identidade, criamos do zero. Se já tem, organizamos e aplicamos com
+            cuidado. É a marca que faz o cliente lembrar de você depois de fechar a página.
           </p>
           <ul className="lista-losango identidade__lista">
-            <li>Logotipo aplicado do jeito certo, com área de respiro e versões</li>
-            <li>Paleta da marca nas cores de fundo, botões e destaques</li>
-            <li>Fontes da sua identidade nos títulos e textos</li>
-            <li>Fotos reais do produto e do espaço</li>
-            <li>Textos no tom de voz da casa</li>
+            <li>Logotipo e suas versões</li>
+            <li>Paleta de cores</li>
+            <li>Tipografia para títulos e textos</li>
+            <li>Tom de voz: o jeito como a marca fala</li>
+            <li>Manual da marca, para usar no site, no Instagram, na fachada e no material impresso</li>
           </ul>
         </div>
 
@@ -107,27 +103,10 @@ export function Provador() {
                 type="text"
                 value={nome}
                 maxLength={28}
-                placeholder="Ex.: Brasa & Pão"
+                placeholder="Ex.: Studio Lume"
                 onChange={(e) => setNome(e.target.value)}
               />
             </label>
-
-            <fieldset className="grupo">
-              <legend>Formato</legend>
-              <div className="segmentos">
-                {(["cardapio", "site"] as Formato[]).map((x) => (
-                  <button
-                    key={x}
-                    type="button"
-                    aria-pressed={formato === x}
-                    className={formato === x ? "segmento segmento--on" : "segmento"}
-                    onClick={() => setFormato(x)}
-                  >
-                    {x === "cardapio" ? "Cardápio" : "Site"}
-                  </button>
-                ))}
-              </div>
-            </fieldset>
 
             <fieldset className="grupo">
               <legend>Cor da marca</legend>
@@ -190,52 +169,20 @@ export function Provador() {
 
           <div className="provador__saida">
             <div className="previa" style={estilo} aria-live="polite">
-              {formato === "cardapio" ? (
-                <>
-                  <div className="previa__topo">
-                    <small>Cardápio</small>
-                    <strong>{nomeExibido}</strong>
-                  </div>
-                  <div className="previa__abas">
-                    <span className="on">Da casa</span>
-                    <span>Porções</span>
-                    <span>Bebidas</span>
-                  </div>
-                  <ul className="previa__itens">
-                    <li>
-                      <span>
-                        <b>O mais pedido</b>
-                        <small>Seu carro-chefe aparece primeiro</small>
-                      </span>
-                      <em>R$ 38</em>
-                    </li>
-                    <li>
-                      <span>
-                        <b>Especial da semana</b>
-                        <small>Com foto e descrição completa</small>
-                      </span>
-                      <em>R$ 44</em>
-                    </li>
-                  </ul>
-                  <span className="previa__acao">Pedir pelo WhatsApp</span>
-                </>
-              ) : (
-                <>
-                  <div className="previa__topo previa__topo--site">
-                    <strong>{nomeExibido}</strong>
-                    <small>Atendimento com hora marcada</small>
-                  </div>
-                  <div className="previa__faixa" />
-                  <ul className="previa__servicos">
-                    <li>Serviço principal</li>
-                    <li>Pacote completo</li>
-                    <li>Primeira visita</li>
-                  </ul>
-                  <span className="previa__acao">Agendar pelo WhatsApp</span>
-                </>
-              )}
+              <div className="previa__topo">
+                <small>Seu site</small>
+                <strong>{nomeExibido}</strong>
+              </div>
+              <p className="previa__frase">O que você faz, em uma frase.</p>
+              <div className="previa__faixa" />
+              <ul className="previa__servicos">
+                <li>Produto ou serviço principal</li>
+                <li>O diferencial da casa</li>
+                <li>Onde encontrar você</li>
+              </ul>
+              <span className="previa__acao">Falar no WhatsApp</span>
               <span className="previa__assinatura">
-                Vitrine por <Simbolo tamanho={10} recorte="var(--p-fundo)" /> synex
+                Criado por <Simbolo tamanho={10} recorte="var(--p-fundo)" /> synex
               </span>
             </div>
 
@@ -248,14 +195,11 @@ export function Provador() {
                 <span className="tokens__p">--fundo</span>: <span className="tokens__v">{f.fundo}</span>;
                 {"\n"}
                 <span className="tokens__p">--titulos</span>: <span className="tokens__v">&quot;{fonte.familia}&quot;</span>;
-                {"\n"}
-                <span className="tokens__p">--formato</span>:{" "}
-                <span className="tokens__v">{formato === "cardapio" ? "cardapio" : "site"}</span>;
               </code>
             </pre>
 
             <a className="btn btn--primario provador__cta" href={linkWhats(mensagem)} target="_blank" rel="noopener">
-              <Icone nome="whats" /> Montar a minha com a Synex
+              <Icone nome="whats" /> Criar a minha marca com a Synex
             </a>
             <p className="provador__nota">Suas escolhas vão junto na mensagem.</p>
           </div>

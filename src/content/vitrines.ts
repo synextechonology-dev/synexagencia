@@ -1,5 +1,5 @@
-// As três marcas fictícias que aparecem no celular da primeira tela.
-// Servem para mostrar que a mesma estrutura ganha outra cara para cada marca.
+// As quatro marcas fictícias que aparecem no celular da seção "O que criamos".
+// Cada uma ilustra um formato (institucional, landing page, cardápio, loja) com uma identidade própria.
 
 export type Vitrine = {
   nome: string;
@@ -15,44 +15,12 @@ export type Vitrine = {
   acao: string;
 };
 
-export const vitrines: Vitrine[] = [
-  {
-    nome: "Brasa & Pão",
-    nicho: "Hamburgueria",
-    fundo: "#1A110C",
-    texto: "#FBEFE3",
-    apoio: "rgba(251,239,227,.62)",
-    marca: "#E4572E",
-    marcaTexto: "#FFFFFF",
-    fonte: "'Bebas Neue', sans-serif",
-    abas: ["Lanches", "Porções", "Bebidas"],
-    itens: [
-      { nome: "Clássico da casa", detalhe: "Blend 160 g, cheddar, cebola na chapa", preco: "R$ 32" },
-      { nome: "Duplo cheddar", detalhe: "Dois blends, cheddar duplo, bacon", preco: "R$ 41" },
-      { nome: "Batata rústica", detalhe: "Com páprica e maionese da casa", preco: "R$ 18" },
-    ],
-    acao: "Pedir pelo WhatsApp",
-  },
-  {
-    nome: "Bistrô Aurora",
-    nicho: "Café e bistrô",
-    fundo: "#F6F2EA",
-    texto: "#1F2A1C",
-    apoio: "rgba(31,42,28,.6)",
-    marca: "#3F5B3A",
-    marcaTexto: "#FFFFFF",
-    fonte: "'Fraunces', serif",
-    abas: ["Entradas", "Pratos", "Cafés"],
-    itens: [
-      { nome: "Bruschetta de tomate", detalhe: "Pão de fermentação natural", preco: "R$ 32" },
-      { nome: "Carpaccio", detalhe: "Rúcula, parmesão, alcaparras", preco: "R$ 48" },
-      { nome: "Burrata", detalhe: "Pesto de manjericão", preco: "R$ 56" },
-    ],
-    acao: "Reservar mesa",
-  },
-  {
+export type FormatoId = "institucional" | "landing" | "cardapio" | "loja";
+
+export const vitrines: Record<FormatoId, Vitrine> = {
+  institucional: {
     nome: "Navalha",
-    nicho: "Barbearia",
+    nicho: "Site · Barbearia",
     fundo: "#0F0F11",
     texto: "#F2EEE6",
     apoio: "rgba(242,238,230,.58)",
@@ -67,4 +35,55 @@ export const vitrines: Vitrine[] = [
     ],
     acao: "Agendar horário",
   },
-];
+  landing: {
+    nome: "Lume Estúdio",
+    nicho: "Landing page · Estética",
+    fundo: "#FBF7F4",
+    texto: "#2B2024",
+    apoio: "rgba(43,32,36,.6)",
+    marca: "#B4637A",
+    marcaTexto: "#FFFFFF",
+    fonte: "'Fraunces', serif",
+    abas: ["Tratamentos", "Avaliação", "Local"],
+    itens: [
+      { nome: "Limpeza de pele profunda", detalhe: "Extração, máscara e hidratação", preco: "60 min" },
+      { nome: "Peeling de diamante", detalhe: "Renova a textura da pele", preco: "40 min" },
+      { nome: "Avaliação da pele", detalhe: "Para indicar o tratamento certo", preco: "20 min" },
+    ],
+    acao: "Agendar avaliação",
+  },
+  cardapio: {
+    nome: "Bistrô Aurora",
+    nicho: "Cardápio digital · Bistrô",
+    fundo: "#F6F2EA",
+    texto: "#1F2A1C",
+    apoio: "rgba(31,42,28,.6)",
+    marca: "#3F5B3A",
+    marcaTexto: "#FFFFFF",
+    fonte: "'Fraunces', serif",
+    abas: ["Entradas", "Pratos", "Cafés"],
+    itens: [
+      { nome: "Bruschetta de tomate", detalhe: "Pão de fermentação natural", preco: "R$ 32" },
+      { nome: "Carpaccio", detalhe: "Rúcula, parmesão, alcaparras", preco: "R$ 48" },
+      { nome: "Burrata", detalhe: "Pesto de manjericão", preco: "R$ 56" },
+    ],
+    acao: "Reservar mesa",
+  },
+  loja: {
+    nome: "Ponto Cel",
+    nicho: "Loja virtual · Acessórios",
+    fundo: "#0E1116",
+    texto: "#F2F4F7",
+    apoio: "rgba(242,244,247,.6)",
+    marca: "#F59E0B",
+    marcaTexto: "#111214",
+    fonte: "'Space Grotesk', sans-serif",
+    abas: ["Capinhas", "Carregadores", "Fones"],
+    itens: [
+      { nome: "Capinha antiimpacto", detalhe: "Bordas reforçadas, várias cores", preco: "R$ 49,90" },
+      { nome: "Carregador 20W", detalhe: "Cabo USB-C incluso", preco: "R$ 89,90" },
+      { nome: "Película de vidro", detalhe: "Aplicação na hora", preco: "R$ 29,90" },
+    ],
+    acao: "Finalizar no WhatsApp",
+  },
+};

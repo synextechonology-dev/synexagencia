@@ -12,10 +12,10 @@ export function Projetos() {
       <div className="wrap">
         <div className="cabeca">
           <p className="rotulo">Projetos</p>
-          <h2 className="titulo">Projetos em destaque.</h2>
+          <h2 className="titulo">Projetos que já saíram daqui.</h2>
           <p className="lead">
-            Dois projetos reais, no ar, cada um feito a partir da identidade da própria marca. Abra no celular para
-            ver como funcionam.
+            Dois clientes reais e um projeto conceito, criado do zero para mostrar como a Synex trabalha num segmento
+            novo. Cada um nasceu de uma identidade diferente.
           </p>
         </div>
 
@@ -28,7 +28,7 @@ export function Projetos() {
                     src={p.foto}
                     alt={p.fotoAlt ?? `Tela do projeto ${p.nome}`}
                     fill
-                    sizes="(max-width: 760px) calc(100vw - 32px), 580px"
+                    sizes="(max-width: 760px) calc(100vw - 32px), (max-width: 1080px) 580px, 390px"
                     style={{ objectPosition: p.enquadramento }}
                   />
                 ) : (

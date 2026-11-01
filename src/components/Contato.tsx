@@ -8,16 +8,23 @@ import { linkWhats, mensagens, site } from "@/content/site";
 // Se um dia quiser guardar os contatos (CRM, planilha), troque o envio em `enviar`.
 
 const segmentos = [
-  "Hamburgueria",
-  "Pizzaria",
-  "Cafeteria",
-  "Bar ou restaurante",
-  "Barbearia",
-  "Clínica ou consultório",
+  "Alimentação",
+  "Beleza e estética",
+  "Saúde",
+  "Loja e varejo",
+  "Serviços",
+  "Escritório ou consultoria",
   "Outro",
 ];
 
-const necessidades = ["Cardápio digital", "Site", "Automação de processos"];
+const necessidades = [
+  "Identidade visual",
+  "Site institucional",
+  "Landing page",
+  "Cardápio digital",
+  "Loja virtual",
+  "Automação de processos",
+];
 
 type Erros = Partial<Record<"nome" | "negocio" | "precisa", string>>;
 
@@ -60,9 +67,9 @@ export function Contato() {
       <div className="wrap contato__grade">
         <div className="contato__texto">
           <p className="rotulo rotulo--claro">Contato</p>
-          <h2 className="titulo">Vamos montar a sua?</h2>
+          <h2 className="titulo">Vamos criar a sua?</h2>
           <p className="lead">
-            Conte um pouco do seu negócio. A mensagem vai pronta para o nosso WhatsApp e a gente responde por lá.
+            Conte um pouco do seu negócio e do que você precisa. A mensagem vai pronta para o nosso WhatsApp e a gente responde por lá.
           </p>
           <div className="contato__canais">
             <a href={linkWhats()} target="_blank" rel="noopener">
