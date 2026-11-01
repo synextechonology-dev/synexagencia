@@ -19,11 +19,11 @@ Tudo que ainda está pendente aparece com borda rosa e uma etiqueta.
 
 Arquivo: `src/content/projetos.ts`. Fotos em `public/projetos/`, formato 4:3, `.webp` ou `.jpg`, lado maior com 1600 px, abaixo de 300 KB.
 
-O portfólio tem dois clientes reais, os dois com autorização por escrito dos donos, e um projeto conceito:
+O portfólio tem dois clientes reais, os dois com autorização por escrito dos donos, e um projeto conceito, todos publicados:
 
 - Andri's Burger (Camboriú, SC), no ar
 - Barbearia Palazzo (Santa Cruz do Rio Pardo, SP), no ar
-- **Lastro Contabilidade (projeto conceito): FALTA A FOTO.** O projeto já está cadastrado em `projetos.ts`, mas escondido (`publicar: false`). Coloque o print do site em `public/projetos/lastro-contabilidade.webp` (4:3, lado maior com 1600 px, abaixo de 300 KB) e apague a linha `publicar: false`. Enquanto isso, o texto da seção Projetos ("Dois clientes reais e um projeto conceito") fala de um terceiro projeto que ainda não aparece. A cor do projeto (`#0B1220`) veio do CSS do site no ar; o destaque dele é dourado (`#D4A84B`).
+- Lastro Contabilidade (projeto conceito), no ar. A cor do projeto (`#0B1220`) veio do CSS do site publicado; o destaque dele é dourado (`#D4A84B`).
 
 Para adicionar outro projeto, basta copiar um bloco em `projetos.ts` e trocar os dados (nome, nicho, cidade, resumo, entregas, cor, foto e link). Se a lista ficar vazia, a seção Projetos e o link do menu somem sozinhos.
 

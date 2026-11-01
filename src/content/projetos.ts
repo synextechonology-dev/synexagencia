@@ -53,7 +53,6 @@ export const projetos: Projeto[] = [
     link: "https://barbearia-palazzo.vercel.app/",
   },
   {
-    // PENDENTE: falta public/projetos/lastro-contabilidade.webp. Quando o arquivo existir, apague a linha `publicar: false`.
     slug: "lastro-contabilidade",
     nome: "Lastro Contabilidade",
     tipo: "conceito",
@@ -64,8 +63,9 @@ export const projetos: Projeto[] = [
     cor: "#0B1220",
     foto: "/projetos/lastro-contabilidade.webp",
     fotoAlt: "Tela do site do Lastro Contabilidade",
+    // o nome e o título ficam à esquerda do print; o corte centralizado esconderia a frase
+    enquadramento: "left center",
     link: "https://lastrocontabilidade.vercel.app/",
-    publicar: false,
   },
 ];
 
