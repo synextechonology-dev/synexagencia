@@ -24,10 +24,7 @@ export function Projetos() {
         <div className="cabeca">
           <p className="rotulo">Projetos</p>
           <h2 className="titulo">Projetos que já saíram daqui.</h2>
-          <p className="lead">
-            Dois clientes reais e um projeto conceito, criado do zero para mostrar como a Synex trabalha num segmento
-            novo. Cada um nasceu de uma identidade diferente.
-          </p>
+          <p className="lead">Clientes reais e projetos conceito. Cada um nasceu de uma identidade diferente.</p>
         </div>
 
         <div className="projetos">

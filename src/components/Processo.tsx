@@ -5,8 +5,8 @@ import { site } from "@/content/site";
 const etapas = [
   { titulo: "Conversa", texto: "Entendemos o negócio, o público e por onde o cliente chega até você hoje." },
   { titulo: "Identidade", texto: "Criamos a marca do zero ou organizamos a que você já tem: logo, cores, fontes e tom de voz." },
-  { titulo: "Protótipo", texto: "Você vê o projeto funcionando no seu celular antes da versão final." },
-  { titulo: "Ajustes", texto: "Revisamos textos, fotos e detalhes com você até ficar com a cara da casa." },
+  { titulo: "Protótipo", texto: "Você vê o projeto funcionando no seu celular antes de aprovar." },
+  { titulo: "Ajustes", texto: "Revisamos textos, fotos e detalhes com você, dentro das rodadas combinadas." },
   { titulo: "No ar", texto: "Publicamos, ligamos ao seu WhatsApp e entregamos tudo funcionando." },
 ];
 
@@ -16,13 +16,13 @@ export function Processo() {
       <div className="wrap">
         <div className="cabeca">
           <p className="rotulo">Processo</p>
-          <h2 className="titulo">Como um projeto anda.</h2>
+          <h2 className="titulo">Como é trabalhar com a Synex.</h2>
           {site.prazoMedio ? (
             <p className="lead">Prazo médio de entrega: {site.prazoMedio}.</p>
           ) : (
             <p className="lead">
-              O prazo é combinado em cada projeto, antes de começar. Você acompanha cada etapa e aprova antes de
-              seguir para a próxima.
+              Você fala direto com quem faz o projeto e aprova cada etapa antes de seguir. Prazo e rodadas de ajuste
+              ficam combinados antes de começar, junto com o escopo.
             </p>
           )}
         </div>

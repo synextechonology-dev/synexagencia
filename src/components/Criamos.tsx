@@ -11,30 +11,34 @@ import { linkWhats, mensagens } from "@/content/site";
 // e não roda com prefers-reduced-motion. A lista entra deslizando da esquerda e o celular da direita,
 // uma vez só, quando a seção aparece na tela.
 
-const formatos: { id: FormatoId; icone: NomeIcone; titulo: string; texto: string }[] = [
+const formatos: { id: FormatoId; icone: NomeIcone; titulo: string; texto: string; bomPara: string }[] = [
   {
     id: "institucional",
     icone: "site",
     titulo: "Site institucional",
     texto: "Para apresentar o negócio, os serviços e a equipe, e passar confiança para quem ainda não te conhece.",
+    bomPara: "Bom para clínicas, escritórios, barbearias e prestadores de serviço.",
   },
   {
     id: "landing",
     icone: "landing",
     titulo: "Landing page",
     texto: "Uma página só, com um objetivo só: vender um serviço, divulgar uma promoção ou lançar algo novo.",
+    bomPara: "Bom para lançamentos, promoções e um serviço específico.",
   },
   {
     id: "cardapio",
     icone: "cardapio",
     titulo: "Cardápio digital",
     texto: "O cliente escolhe no celular e manda o pedido montado para o seu WhatsApp, para retirada ou entrega.",
+    bomPara: "Bom para restaurantes, lanchonetes, cafeterias e delivery.",
   },
   {
     id: "loja",
     icone: "loja",
     titulo: "Loja virtual",
     texto: "Catálogo com fotos, preços e carrinho. O pedido chega pronto no seu WhatsApp.",
+    bomPara: "Bom para lojas de roupa, acessórios, presentes e eletrônicos.",
   },
 ];
 
@@ -89,7 +93,7 @@ export function Criamos() {
     <section className="sec sec--2" id="criamos">
       <div className="wrap">
         <div className="cabeca">
-          <p className="rotulo">O que desenvolvemos</p>
+          <p className="rotulo">O que criamos</p>
           <h2 className="titulo">Um formato para cada jeito de vender.</h2>
           <p className="lead">Todos partem da sua marca e levam o cliente direto para o seu WhatsApp.</p>
         </div>
@@ -121,6 +125,7 @@ export function Criamos() {
                 <span className="criamos__op-texto">
                   <strong>{f.titulo}</strong>
                   <small>{f.texto}</small>
+                  <small className="criamos__bom">{f.bomPara}</small>
                 </span>
               </button>
             ))}

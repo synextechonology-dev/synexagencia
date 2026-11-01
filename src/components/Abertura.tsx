@@ -8,8 +8,8 @@ import { linkWhats } from "@/content/site";
 const motivos: { icone: NomeIcone; titulo: string; texto: string }[] = [
   {
     icone: "lupa",
-    titulo: "Aparece no Google",
-    texto: "Quem procura o que você vende encontra você, e não o concorrente.",
+    titulo: "Pode ser encontrado no Google",
+    texto: "Quem procura o que você vende tem onde te achar, além do Instagram.",
   },
   {
     icone: "chave",
@@ -30,10 +30,10 @@ export function Abertura() {
       <div className="wrap abertura__grade">
         <div className="abertura__texto">
           <p className="rotulo">Por que ter um site?</p>
-          <h1 className="abertura__titulo">Porque a primeira visita ao seu negócio acontece no celular.</h1>
+          <h1 className="abertura__titulo">Porque o cliente pesquisa antes de chamar, e decide pelo que encontra.</h1>
           <p className="abertura__sub">
-            A Synex cria a marca e a presença digital do seu negócio: identidade visual, site, landing page,
-            cardápio digital e loja virtual, tudo com a mesma cara.
+            Criamos a sua marca e tudo onde ela aparece: site, cardápio, loja ou landing page. Uma identidade só,
+            do logo ao botão do WhatsApp.
           </p>
 
           <ul className="motivos">
@@ -42,7 +42,7 @@ export function Abertura() {
                 <span className="icone-caixa">
                   <Icone nome={m.icone} />
                 </span>
-                <h2>{m.titulo}</h2>
+                <h3>{m.titulo}</h3>
                 <p>{m.texto}</p>
               </li>
             ))}
@@ -50,12 +50,18 @@ export function Abertura() {
 
           <div className="abertura__acoes">
             <a className="btn btn--primario btn--grande" href={linkWhats()} target="_blank" rel="noopener">
-              <Icone nome="whats" /> Começar meu projeto
+              <Icone nome="whats" /> Pedir orçamento
             </a>
             <a className="link-texto" href="#contato">
               Prefiro mandar os detalhes
             </a>
           </div>
+
+          <p className="diferenciais">
+            <span>Pago uma vez, mensalidade só se quiser</span>
+            <span>Você aprova no celular antes</span>
+            <span>Fala direto com quem faz</span>
+          </p>
         </div>
 
         <div className="palco" aria-hidden="true">

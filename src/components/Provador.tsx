@@ -82,7 +82,8 @@ export function Provador() {
           <h2 className="titulo">Antes do site, vem a marca.</h2>
           <p className="lead">
             Se o seu negócio ainda não tem identidade, criamos do zero. Se já tem, organizamos e aplicamos com
-            cuidado. É a marca que faz o cliente lembrar de você depois de fechar a página.
+            cuidado. Marca e site saem da mesma mão, então nada fica desencontrado. É a marca que faz o cliente
+            lembrar de você depois de fechar a página.
           </p>
           <ul className="lista-losango identidade__lista">
             <li>Logotipo e suas versões</li>

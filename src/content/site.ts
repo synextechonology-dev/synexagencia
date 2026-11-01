@@ -25,7 +25,7 @@ export const site = {
 };
 
 export const mensagens = {
-  geral: "Oi! Vim pelo site da Synex e quero conversar sobre um projeto para o meu negócio.",
+  geral: "Oi! Vim pelo site da Synex e quero um orçamento para o meu negócio.",
   identidade: "Oi! Vim pelo site da Synex e quero criar a identidade visual do meu negócio.",
   institucional: "Oi! Vim pelo site da Synex e quero um site institucional.",
   landing: "Oi! Vim pelo site da Synex e quero uma landing page.",

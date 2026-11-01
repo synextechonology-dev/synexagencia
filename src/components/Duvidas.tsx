@@ -8,7 +8,7 @@ import { useState } from "react";
 const duvidas: { p: string; r: string; pendente?: string }[] = [
   {
     p: "Já tenho Instagram. Preciso mesmo de site?",
-    r: "O Instagram é ótimo para ser visto, mas as regras são da plataforma e o alcance muda sem aviso. O site é seu: aparece no Google, junta tudo em um link só e leva o cliente direto para o seu WhatsApp.",
+    r: "O Instagram é ótimo para ser visto, mas as regras são da plataforma e o alcance muda sem aviso. O site é seu: pode ser encontrado no Google, junta tudo em um link só e leva o cliente direto para o seu WhatsApp.",
   },
   {
     p: "Qual formato é o melhor para o meu negócio?",
@@ -19,12 +19,24 @@ const duvidas: { p: string; r: string; pendente?: string }[] = [
     r: "Criamos. Logo, cores, fontes, tom de voz e manual da marca. Se você já tem uma identidade, aplicamos a sua.",
   },
   {
+    p: "Consigo mudar preços, produtos e fotos sozinho?",
+    r: "Consegue, quando o projeto precisa disso. Combinamos no início o que você vai poder atualizar por conta própria. Se preferir não mexer, a gente atualiza para você.",
+  },
+  {
     p: "Quanto custa?",
-    r: "Depende do que o seu negócio precisa. Uma landing page tem um valor, uma identidade completa com site e loja tem outro. Na conversa a gente entende o escopo e passa um valor fechado, sem surpresa depois.",
+    r: "Depende do que o seu negócio precisa: se a identidade é criada do zero, quantas páginas o site tem e quais funções entram, como cardápio com pedido ou loja com carrinho. Na conversa a gente entende o escopo e passa um valor fechado, sem surpresa depois.",
   },
   {
     p: "Tem mensalidade?",
     r: "Só se você quiser. O projeto é pago uma vez. A mensalidade existe para quem prefere que a gente cuide das alterações ao longo do mês.",
+  },
+  {
+    p: "E se eu quiser mudar alguma coisa durante o projeto?",
+    r: "Antes de começar, combinamos quantas rodadas de ajuste estão incluídas. Você vê o projeto funcionando no celular e pede as mudanças dentro dessas rodadas.",
+  },
+  {
+    p: "Não tenho fotos boas do meu negócio. E agora?",
+    r: "Se o seu negócio fica em Santa Cruz do Rio Pardo, podemos fazer uma sessão de fotos do espaço e dos produtos, combinada na proposta. Em outras cidades, a gente conversa sobre a melhor saída para o seu caso.",
   },
   {
     p: "Quanto tempo leva?",

@@ -67,7 +67,7 @@ export function Contato() {
       <div className="wrap contato__grade">
         <div className="contato__texto">
           <p className="rotulo rotulo--claro">Contato</p>
-          <h2 className="titulo">Vamos criar a sua?</h2>
+          <h2 className="titulo">Vamos conversar sobre o seu projeto?</h2>
           <p className="lead">
             Conte um pouco do seu negócio e do que você precisa. A mensagem vai pronta para o nosso WhatsApp e a gente responde por lá.
           </p>

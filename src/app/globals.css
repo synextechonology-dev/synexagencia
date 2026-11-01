@@ -535,7 +535,7 @@ select {
 .motivos .icone-caixa {
   margin-bottom: 4px;
 }
-.motivos h2 {
+.motivos h3 {
   font-size: 1.02rem;
   line-height: 1.2;
 }
@@ -551,6 +551,30 @@ select {
   align-items: center;
   gap: 18px 28px;
   animation: subir 0.8s 0.34s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+/* diferenciais: três trechos, cada um com um losango pequeno à frente (mesmo estilo dos marcadores de lista) */
+.diferenciais {
+  margin-top: 22px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 22px;
+  font-size: 0.86rem;
+  color: var(--texto-3);
+  animation: subir 0.8s 0.4s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+.diferenciais span {
+  display: inline-flex;
+  align-items: flex-start;
+}
+.diferenciais span::before {
+  content: "";
+  flex-shrink: 0;
+  width: 6px;
+  height: 6px;
+  margin: 0.55em 10px 0 2px;
+  border-radius: 1.5px;
+  background: var(--azul);
+  transform: rotate(45deg);
 }
 .abertura .rotulo {
   animation: subir 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) both;
@@ -768,6 +792,11 @@ select {
     margin: 0;
   }
 }
+@media (max-width: 560px) {
+  .diferenciais {
+    flex-direction: column;
+  }
+}
 @media (max-width: 420px) {
   .abertura__acoes .btn {
     width: 100%;
@@ -843,6 +872,11 @@ select {
   font-size: 0.9rem;
   line-height: 1.5;
   color: var(--texto-2);
+}
+.criamos__op small.criamos__bom {
+  margin-top: 4px;
+  font-size: 0.8rem;
+  color: var(--texto-3);
 }
 .criamos__palco {
   display: grid;

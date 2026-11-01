@@ -22,7 +22,7 @@ export function BotaoFlutuante() {
       aria-hidden={!visivel}
       tabIndex={visivel ? 0 : -1}
     >
-      <Icone nome="whats" /> Começar meu projeto
+      <Icone nome="whats" /> Pedir orçamento
     </a>
   );
 }
