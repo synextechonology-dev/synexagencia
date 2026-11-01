@@ -5,10 +5,10 @@ import { site } from "@/content/site";
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
-  title: "Synex | Sites e Identidade Visual em Santa Cruz do Rio Pardo",
+  title: "Synex | Sites e Automação em Santa Cruz do Rio Pardo",
   description: site.descricao,
   openGraph: {
-    title: "Synex | Sites e Identidade Visual em Santa Cruz do Rio Pardo",
+    title: "Synex | Sites e Automação em Santa Cruz do Rio Pardo",
     description: site.descricao,
     url: site.url,
     siteName: "Synex",
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary",
-    title: "Synex | Sites e Identidade Visual em Santa Cruz do Rio Pardo",
+    title: "Synex | Sites e Automação em Santa Cruz do Rio Pardo",
     description: site.descricao,
   },
 };
